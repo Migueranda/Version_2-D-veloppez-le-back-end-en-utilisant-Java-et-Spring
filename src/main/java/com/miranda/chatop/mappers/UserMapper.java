@@ -11,8 +11,14 @@ import org.mapstruct.Mapping;
 public interface UserMapper {
     UserDto toUserDto(UserEntity userEntity);
 
-  //@Mapping(target = "password", ignore = true)
-    UserEntity signUpToUser(SignUpDto signUpDto);
+    @Mapping(target = "password", ignore = true)
+    default UserEntity signUpToUser(SignUpDto signUpDto) {
+        UserEntity userEntity = new UserEntity();
+        userEntity.setName(signUpDto.name());
+        userEntity.setEmail(signUpDto.email());
+
+        return userEntity;
+    }
 
 
 }

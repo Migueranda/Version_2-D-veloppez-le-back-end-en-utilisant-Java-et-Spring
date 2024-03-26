@@ -25,7 +25,6 @@ public class RentalsService implements IRentalsService {
     //le service RentalsService encapsule les opérations CRUD de base pour les entités RentalsEntity, en utilisant les méthodes fournies par le RentalRepository
     // Le service utilise le RentalRepository pour interagir avec la base de données
     private final RentalRepository rentalRepository;
-   // private final String Folder_PATH = "C:\\dev\\Projet3\\chatop\\uploads\\";
     @Value("${file.upload.dir}")
     private String Folder_PATH;
 
