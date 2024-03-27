@@ -29,11 +29,9 @@ public class SecurityConfig {
 
                 .authorizeHttpRequests((requests) ->
                         requests
-                                .requestMatchers(HttpMethod.POST, "/auth/login","/auth/register", "/fileSystem").permitAll()
+                                .requestMatchers(HttpMethod.POST, "/auth/login","/auth/register").permitAll()
                                 .requestMatchers(HttpMethod.GET, "/swagger-ui/**", "/v3/api-docs/**", "/swagger-ui.html","/fileSystem/*").permitAll()
-                                //.requestMatchers(HttpMethod.PUT, "/rentals/*").permitAll()
                                 .anyRequest().authenticated()
-
                 );
         return  http.build();
     }

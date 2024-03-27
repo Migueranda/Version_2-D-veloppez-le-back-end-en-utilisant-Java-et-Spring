@@ -33,13 +33,12 @@ public class UserService implements IUserService{
     private final PasswordEncoder passwordEncoder;
     private final UserMapper userMapper;
 
-
     //Cette méthode permet de récuppèrer  tous les utilisateur de la base de données
     public Iterable<UserEntity> getUser(){
         return userRepository.findAll();
     }
 
-    //ette méthode récuppère l'entité utilisateur en fonction de son id puis la convertit en dto
+    //cette méthode récuppère l'entité utilisateur en fonction de son id puis la convertit en dto
     @Override
     public UserDto getUserEntity(final Integer id){
         UserEntity userEntity = userRepository.findById(id).orElse(null);
@@ -85,7 +84,6 @@ public class UserService implements IUserService{
             return null;
         }
         UserDto userDto = (UserDto) authentication.getPrincipal();
-
         return userDto;
     }
 }
